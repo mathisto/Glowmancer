@@ -568,81 +568,89 @@ class SpellbookScene extends Phaser.Scene {
     createDetailPanel() {
         const { width, height } = this.cameras.main;
         const panelY = height - 120;
+        const panelWidth = width - 100;
+        const panelLeft = (width - panelWidth) / 2;
+        const panelRight = panelLeft + panelWidth;
         
         // Detail panel background
-        this.detailPanel = this.add.rectangle(width/2, panelY, width - 100, 100, 0x1a1a2e);
+        this.detailPanel = this.add.rectangle(width/2, panelY, panelWidth, 100, 0x1a1a2e);
         this.detailPanel.setStrokeStyle(2, 0x8a2be2);
         this.detailPanel.setAlpha(0.9);
         
-        // Title - centered
-        this.detailTitle = this.add.text(width/2, panelY - 25, 'Hover over a spell to see details', {
+        // Default centered message when no spell is hovered
+        this.defaultHoverText = this.add.text(width/2, panelY, 'Hover over a spell to see details', {
             font: 'bold 16px monospace',
             fill: '#ffffff'
         });
-        this.detailTitle.setOrigin(0.5);
+        this.defaultHoverText.setOrigin(0.5);
         
-        // Description - centered
-        this.detailDesc = this.add.text(width/2, panelY, '', {
-            font: '13px monospace',
-            fill: '#ccccff',
-            wordWrap: { width: 600 },
-            align: 'center'
+        // Title - top left
+        this.detailTitle = this.add.text(panelLeft + 20, panelY - 35, '', {
+            font: 'bold 16px monospace',
+            fill: '#ffffff'
         });
-        this.detailDesc.setOrigin(0.5);
+        this.detailTitle.setOrigin(0, 0.5);
         
-        // Example will be created dynamically with colored glyphs
-        this.exampleContainer = null;
-        
-        // Stats - centered
-        this.detailStats = this.add.text(width/2, panelY + 25, '', {
+        // Stats - top right
+        this.detailStats = this.add.text(panelRight - 20, panelY - 35, '', {
             font: '12px monospace',
             fill: '#44ccff'
         });
-        this.detailStats.setOrigin(0.5);
+        this.detailStats.setOrigin(1, 0.5);
+        
+        // Description - bottom left half
+        this.detailDesc = this.add.text(panelLeft + 20, panelY + 5, '', {
+            font: '13px monospace',
+            fill: '#ccccff',
+            wordWrap: { width: panelWidth/2 - 40 }
+        });
+        this.detailDesc.setOrigin(0, 0);
+        
+        // Example will be created dynamically with colored glyphs
+        this.exampleContainer = null;
     }
 
     updateDetailPanel(spell) {
         if (!spell) {
-            this.detailTitle.setText('Hover over a spell to see details');
+            // Show default hover text
+            this.defaultHoverText.setVisible(true);
+            this.detailTitle.setText('');
             this.detailDesc.setText('');
+            this.detailStats.setText('');
             // Clear example glyphs
             if (this.exampleContainer) {
                 this.exampleContainer.destroy();
                 this.exampleContainer = null;
             }
-            this.detailStats.setText('');
             return;
         }
         
+        // Hide default hover text
+        this.defaultHoverText.setVisible(false);
+        
+        // Update panel content
         this.detailTitle.setText(`${spell.symbol} ${spell.name}`);
         this.detailDesc.setText(spell.description);
+        this.detailStats.setText(`Key: [${spell.key}]  |  Cost: ${spell.cost} MP  |  Unlocked at Level ${spell.unlockLevel}`);
         
         // Create colored example glyphs
         this.createColoredExample(spell.example);
-        
-        this.detailStats.setText(`Key: [${spell.key}]  |  Cost: ${spell.cost} MP  |  Unlocked at Level ${spell.unlockLevel}`);
     }
     
     createColoredExample(exampleString) {
         const { width, height } = this.cameras.main;
         const panelY = height - 120;
+        const panelWidth = width - 100;
+        const panelLeft = (width - panelWidth) / 2;
         
         // Clear previous example
         if (this.exampleContainer) {
             this.exampleContainer.destroy();
         }
         
-        // First, calculate total width needed
-        const fullString = 'Example: ' + exampleString;
-        const tempText = this.add.text(0, 0, fullString, {
-            font: '14px monospace',
-            fill: '#ffcc00'
-        });
-        const totalWidth = tempText.width;
-        tempText.destroy();
-        
-        // Create container centered
-        this.exampleContainer = this.add.container(width/2 - totalWidth/2, panelY);
+        // Position example in right half of panel
+        const exampleX = panelLeft + panelWidth/2 + 20;
+        this.exampleContainer = this.add.container(exampleX, panelY + 5);
         
         // Parse the example string and create colored text for each glyph
         const label = this.add.text(0, 0, 'Example: ', {
