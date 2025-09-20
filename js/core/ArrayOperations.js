@@ -230,4 +230,99 @@ class ArrayOperations {
         const size = Math.min(pattern.length, pattern[0].length);
         return R.times(i => pattern[i][i], size);
     }
+
+    // New operations stolen from Uiua
+    static deduplicate(pattern) {
+        // Remove duplicate rows (◴)
+        return R.uniq(pattern);
+    }
+
+    static classify(pattern) {
+        // Assign unique index to each unique element (⊛)
+        const unique = R.uniq(pattern);
+        return R.map(elem => R.indexOf(elem, unique), pattern);
+    }
+
+    static fold(pattern, fn = R.add) {
+        // Reduce/fold operation (∧)
+        return R.reduce(fn, R.head(pattern), R.tail(pattern));
+    }
+
+    static partition(pattern, delimiter = null) {
+        // Split pattern into groups (⊜)
+        if (delimiter === null) {
+            // Split on change
+            return R.reduce((acc, val) => {
+                if (acc.length === 0 || !R.equals(R.last(R.last(acc)), val)) {
+                    return R.append([val], acc);
+                }
+                return R.adjust(-1, R.append(val), acc);
+            }, [], pattern);
+        }
+        // Split on delimiter
+        return R.split(delimiter, pattern);
+    }
+
+    static stencil(pattern, size = 3) {
+        // Apply operation to sliding windows (⧈)
+        if (!Array.isArray(pattern[0])) {
+            const windows = [];
+            for (let i = 0; i <= pattern.length - size; i++) {
+                windows.push(R.slice(i, i + size, pattern));
+            }
+            return windows;
+        }
+        return pattern;
+    }
+
+    static couple(pattern1, pattern2) {
+        // Combine two arrays as rows (⊟)
+        return [pattern1, pattern2];
+    }
+
+    static join(pattern1, pattern2) {
+        // Append arrays end-to-end (⊂)
+        return R.concat(pattern1, pattern2);
+    }
+
+    static box(pattern) {
+        // Turn array into a box/container (□)
+        return [pattern];
+    }
+
+    static unbox(pattern) {
+        // Extract from box
+        return Array.isArray(pattern[0]) && pattern.length === 1 ? pattern[0] : pattern;
+    }
+
+    static keep(pattern, mask) {
+        // Filter based on boolean mask (▽)
+        if (!Array.isArray(mask)) return pattern;
+        return R.addIndex(R.filter)((val, idx) => mask[idx], pattern);
+    }
+
+    static drop(pattern, n) {
+        // Drop first n elements (↘)
+        return R.drop(n, pattern);
+    }
+
+    static take(pattern, n) {
+        // Take first n elements (↙)  
+        return R.take(n, pattern);
+    }
+
+    static select(pattern, indices) {
+        // Select elements by indices (⊏)
+        return R.map(i => pattern[i], indices);
+    }
+
+    static where(pattern) {
+        // Get indices of non-zero elements (⊚)
+        return R.addIndex(R.reduce)((acc, val, idx) => {
+            if (val !== 0 && val !== '0' && val !== null && val !== false) {
+                return R.append(idx, acc);
+            }
+            return acc;
+        }, [], pattern);
+    }
 }
