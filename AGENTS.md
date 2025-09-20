@@ -1,12 +1,12 @@
-# Datamancy - Agent Guide
+# Glowmancer - Agent Guide
 
 ## Project Overview
-Datamancy is a browser-based puzzle game teaching array programming through magical data transformations. Players cast spells (operations) inspired by APL/J/K languages to transform colored glyphs, solving puzzles with limited mana. Built with Phaser.js for eventual Steam release.
+Glowmancer is a browser-based mystical puzzle game about glow magic and transforming patterns of colored orbs. Players cast spells to manipulate glowing mana orbs, solving puzzles with limited magical energy. Built with Phaser.js for eventual Steam release.
 
 ## Tech Stack
 - **Runtime**: Browser (Chrome, Firefox, Safari)
 - **Game Engine**: Phaser.js 3.90.0
-- **Functional Library**: Ramda.js for array operations
+- **Functional Library**: Ramda.js for transformation logic
 - **Language**: JavaScript (ES6)
 - **Package Manager**: npm
 - **Server**: http-server for local development
@@ -15,13 +15,13 @@ Datamancy is a browser-based puzzle game teaching array programming through magi
 
 ### Core Architecture
 ```
-datamancy/
+glowmancer/
 ├── index.html                    # Main HTML entry point
 ├── package.json                  # Project dependencies
 ├── js/
 │   ├── main.js                   # Phaser game configuration
 │   ├── core/                     # Game logic (pure functions)
-│   │   ├── ArrayOperations.js    # Ramda-powered transformations
+│   │   ├── ArrayOperations.js    # Magical orb transformations
 │   │   ├── GameEngine.js         # State management, scoring
 │   │   ├── LevelManager.js       # Level loading and progression
 │   │   └── OperationLoader.js    # Spell/operation definitions
@@ -30,7 +30,7 @@ datamancy/
 │   │   ├── MainMenu.js           # Title screen with options
 │   │   └── GameScene.js          # Main gameplay scene
 │   ├── objects/                  # Game objects
-│   │   └── GlyphSprite.js        # Animated glyph entities
+│   │   └── GlyphSprite.js        # Animated glowing orb entities
 │   ├── effects/                  # Visual effects
 │   │   └── SpellEffects.js       # Spell casting animations
 │   └── ui/                       # UI components
@@ -54,15 +54,15 @@ datamancy/
 ## Key Components
 
 ### GameEngine
-- Manages game state (current array, target array, mana)
-- Applies operations using ArrayOperations
+- Manages game state (current pattern, target pattern, mana)
+- Applies transformations using ArrayOperations
 - Tracks move history for undo functionality
 - Validates win conditions
 - Calculates scores based on par
 
 ### ArrayOperations (Ramda-powered)
-- Pure functional transformations
-- All operations return new arrays (immutable)
+- Pure magical transformations
+- All spells create new patterns (immutable)
 - Key functions: reverse, transpose, rotate, flatten, reshape, zip, mirror
 - Leverages Ramda.js for elegant implementations
 
@@ -70,7 +70,7 @@ datamancy/
 - Loads spell definitions with magical theming
 - Maps operations to:
   - Magical names (e.g., "Spell of Reflection")
-  - APL symbols (⌽, ⍉, ⊖, etc.)
+  - Mystical glyphs (⌽, ⍉, ⊖, etc.)
   - Keyboard shortcuts
   - Mana costs
   - Visual symbols
@@ -96,8 +96,8 @@ datamancy/
 
 ## Spell System
 
-### Current Spells (with APL symbols)
-| Key | Name | Symbol | APL | Cost | Operation |
+### Current Spells (with mystical symbols)
+| Key | Name | Symbol | Glyph | Cost | Transformation |
 |-----|------|--------|-----|------|-----------|
 | R | Spell of Reflection | ⇄ | ⌽ | 1 MP | reverse |
 | T | Matrix Transmutation | ⤨ | ⍉ | 1 MP | transpose |
@@ -154,15 +154,15 @@ datamancy/
   "id": "reverse",
   "name": "Spell of Reflection",
   "symbol": "⇄",
-  "aplSymbol": "⌽",
+  "glyphSymbol": "⌽",
   "cost": 1,
   "key": "r",
   "category": "basic",
   "unlockLevel": 1,
-  "description": "Reverses all elements",
+  "description": "Reverses all orbs",
   "implementation": {
-    "ramda": "R.reverse(arr)",
-    "note": "Creates new array"
+    "ramda": "R.reverse(pattern)",
+    "note": "Creates new pattern"
   }
 }
 ```
@@ -177,9 +177,9 @@ npm start            # Start server on port 8080
 ```
 
 ### Testing New Features
-1. Test operations in browser console: `ArrayOperations.reverse(['a','b','c'])`
+1. Test transformations in browser console: `ArrayOperations.reverse(['a','b','c'])`
 2. Skip levels with developer tools
-3. Check `window.datamancy` for game instance
+3. Check `window.glowmancer` for game instance
 4. Use browser DevTools for debugging
 
 ## Common Issues & Solutions
@@ -245,7 +245,7 @@ npm start            # Start server on port 8080
 ## Debugging Tools
 - Browser DevTools Console
 - Phaser Debug Plugin
-- `window.datamancy` game reference
+- `window.glowmancer` game reference
 - Network tab for asset loading
 - Performance profiler for optimization
 
@@ -257,10 +257,10 @@ npm start            # Start server on port 8080
 
 ## Code Style Guidelines
 - Use ES6 features (arrow functions, destructuring)
-- Ramda for all array operations
-- Immutable data transformations
+- Ramda for all magical transformations
+- Immutable pattern transformations
 - Clear magical naming conventions
 - Comments only where necessary
 
 ---
-*Datamancy v0.1.0 - 20 levels, 23+ operations, Phaser.js powered*
+*Glowmancer v0.1.0 - 20 levels, 23+ spells, Phaser.js powered*
