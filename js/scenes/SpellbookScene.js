@@ -75,7 +75,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'basic',
                 key: 'R',
                 cost: 1,
-                symbol: '⌽',
+                symbol: '◆',  // Using game glyph
                 color: '#4169e1',
                 description: 'Reverses the order of all orbs',
                 example: '[◆◇◈◊] → [◊◈◇◆]',
@@ -88,7 +88,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'transform',
                 key: 'T',
                 cost: 1,
-                symbol: '⍉',
+                symbol: '◇',  // Using game glyph
                 color: '#32cd32',
                 description: 'Flips pattern along diagonal',
                 example: '[[◆◇],[◈◊]] → [[◆◈],[◇◊]]',
@@ -101,7 +101,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'transform',
                 key: 'A',
                 cost: 2,
-                symbol: '⊖',
+                symbol: '◈',  // Using game glyph
                 color: '#32cd32',
                 description: 'Rotates orbs counter-clockwise',
                 example: '[◆◇◈◊] → [◇◈◊◆]',
@@ -114,7 +114,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'transform',
                 key: 'D',
                 cost: 2,
-                symbol: '⌽⊖',
+                symbol: '◊',  // Using game glyph
                 color: '#32cd32',
                 description: 'Rotates orbs clockwise',
                 example: '[◆◇◈◊] → [◊◆◇◈]',
@@ -127,7 +127,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'transform',
                 key: 'E',
                 cost: 2,
-                symbol: '⌽¨',
+                symbol: '★',  // Using game glyph
                 color: '#32cd32',
                 description: 'Reverses each row individually',
                 example: '[[◆◇],[◈◊]] → [[◇◆],[◊◈]]',
@@ -140,7 +140,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'transform',
                 key: 'F',
                 cost: 3,
-                symbol: ',',
+                symbol: '☆',  // Using game glyph
                 color: '#32cd32',
                 description: 'Collapses 2D pattern to single row',
                 example: '[[◆◇],[◈◊]] → [◆◇◈◊]',
@@ -153,7 +153,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'weaving',
                 key: '2',
                 cost: 3,
-                symbol: '2 3⍴',
+                symbol: '✦',  // Using game glyph
                 color: '#ff6347',
                 description: 'Reshapes into 2 rows, 3 columns',
                 example: '[◆◇◈◊★☆] → [[◆◇◈],[◊★☆]]',
@@ -166,7 +166,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'weaving',
                 key: '3',
                 cost: 3,
-                symbol: '3 2⍴',
+                symbol: '✧',  // Using game glyph
                 color: '#ff6347',
                 description: 'Reshapes into 3 rows, 2 columns',
                 example: '[◆◇◈◊★☆] → [[◆◇],[◈◊],[★☆]]',
@@ -179,7 +179,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'selection',
                 key: 'H',
                 cost: 1,
-                symbol: '⊃',
+                symbol: '●',  // Using game glyph
                 color: '#ffd700',
                 description: 'Extracts the first orb',
                 example: '[◆◇◈◊] → [◆]',
@@ -192,7 +192,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'selection',
                 key: 'L',
                 cost: 1,
-                symbol: '⊢↑',
+                symbol: '○',  // Using game glyph
                 color: '#ffd700',
                 description: 'Extracts the last orb',
                 example: '[◆◇◈◊] → [◊]',
@@ -205,7 +205,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'selection',
                 key: 'J',
                 cost: 1,
-                symbol: '↓',
+                symbol: '▲',  // Using game glyph
                 color: '#ffd700',
                 description: 'Removes the first orb',
                 example: '[◆◇◈◊] → [◇◈◊]',
@@ -218,7 +218,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'selection',
                 key: 'K',
                 cost: 1,
-                symbol: '↑',
+                symbol: '▼',  // Using game glyph
                 color: '#ffd700',
                 description: 'Removes the last orb',
                 example: '[◆◇◈◊] → [◆◇◈]',
@@ -231,7 +231,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'pattern',
                 key: 'M',
                 cost: 2,
-                symbol: '⊂⌽⊃',
+                symbol: '■',  // Using game glyph
                 color: '#8a2be2',
                 description: 'Creates mirror pattern',
                 example: '[◆◇◈] → [◆◇◈◈◇◆]',
@@ -244,7 +244,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'weaving',
                 key: 'Z',
                 cost: 3,
-                symbol: ',⍥⊂',
+                symbol: '□',  // Using game glyph
                 color: '#ff6347',
                 description: 'Interleaves two patterns',
                 example: '[[◆◇],[◈◊]] → [◆◈◇◊]',
@@ -257,7 +257,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'pattern',
                 key: 'S',
                 cost: 4,
-                symbol: '⍟',
+                symbol: '✸',  // Using game glyph
                 color: '#8a2be2',
                 description: 'Unwinds pattern in spiral',
                 example: '[[◆◇◈],[◊★☆],[✦✧●]] → [◆◇◈☆●✧✦◊★]',
@@ -270,7 +270,7 @@ class SpellbookScene extends Phaser.Scene {
                 category: 'selection',
                 key: 'B',
                 cost: 2,
-                symbol: '÷2',
+                symbol: '►',  // Using game glyph
                 color: '#ffd700',
                 description: 'Splits pattern in half',
                 example: '[◆◇◈◊] → [[◆◇],[◈◊]]',
@@ -303,8 +303,8 @@ class SpellbookScene extends Phaser.Scene {
     createCategoryTabs() {
         const { width } = this.cameras.main;
         const startY = 100;
-        const tabWidth = 140;
-        const tabHeight = 40;
+        const tabWidth = 180;  // Made wider to fit text
+        const tabHeight = 45;   // Made taller
         const spacing = 10;
         
         // Clear existing container
@@ -339,20 +339,21 @@ class SpellbookScene extends Phaser.Scene {
             tabBg.setAlpha(isSelected ? 1 : 0.7);
             tabBg.setInteractive();
             
-            // Category icon and name
-            const tabText = this.add.text(x - 50, y, category.icon, {
+            // Category icon
+            const tabText = this.add.text(x - 65, y, category.icon, {
                 font: '20px monospace',
                 fill: '#ffffff'
             }).setOrigin(0.5);
             
-            const nameText = this.add.text(x + 10, y, category.name, {
-                font: '12px monospace',
+            // Category name - centered in remaining space
+            const nameText = this.add.text(x - 10, y, category.name, {
+                font: '11px monospace',
                 fill: '#ffffff'
-            }).setOrigin(0, 0.5);
+            }).setOrigin(0.5);
             
-            // Spell count
+            // Spell count - on right side
             const spellCount = this.getSpellCountForCategory(category.id);
-            const countText = this.add.text(x + 60, y, `(${spellCount.unlocked}/${spellCount.total})`, {
+            const countText = this.add.text(x + 65, y, `(${spellCount.unlocked}/${spellCount.total})`, {
                 font: '10px monospace',
                 fill: '#ffcc00'
             }).setOrigin(0.5);
@@ -407,7 +408,7 @@ class SpellbookScene extends Phaser.Scene {
 
     createSpellGrid() {
         const { width, height } = this.cameras.main;
-        const startY = 200;
+        const startY = 220;  // Moved down to give more space
         
         // Clear existing spell container
         if (this.spellContainer) {
@@ -440,7 +441,7 @@ class SpellbookScene extends Phaser.Scene {
             const col = index % cardsPerRow;
             
             const x = gridStartX + col * (cardWidth + spacing) + cardWidth/2;
-            const y = startY + 30 + row * (cardHeight + spacing);
+            const y = startY + 50 + row * (cardHeight + spacing);  // More space below title
             
             this.createSpellCard(x, y, spell, cardWidth, cardHeight);
         });
@@ -469,33 +470,33 @@ class SpellbookScene extends Phaser.Scene {
             card.setInteractive();
         }
         
-        // Spell symbol (large)
-        const symbolText = this.add.text(x - width/2 + 30, y, spell.symbol, {
-            font: 'bold 28px monospace',
-            fill: spell.unlocked ? spell.color : '#444444'
-        });
-        symbolText.setOrigin(0.5);
-        
-        // Spell name
-        const nameText = this.add.text(x + 20, y - 25, spell.name, {
-            font: 'bold 14px monospace',
-            fill: spell.unlocked ? '#ffffff' : '#666666'
-        });
-        nameText.setOrigin(0.5);
-        
-        // Key binding
-        const keyBg = this.add.rectangle(x - width/2 + 30, y - 30, 25, 25, 0x4169e1);
+        // Key binding - top left corner
+        const keyBg = this.add.rectangle(x - width/2 + 20, y - height/2 + 20, 25, 25, 0x4169e1);
         keyBg.setStrokeStyle(1, 0xffffff);
         keyBg.setAlpha(spell.unlocked ? 1 : 0.4);
         
-        const keyText = this.add.text(x - width/2 + 30, y - 30, spell.key, {
+        const keyText = this.add.text(x - width/2 + 20, y - height/2 + 20, spell.key, {
             font: 'bold 12px monospace',
             fill: '#ffffff'
         });
         keyText.setOrigin(0.5);
         
-        // Mana cost
-        const manaText = this.add.text(x + width/2 - 20, y - 30, `${spell.cost} MP`, {
+        // Spell symbol (large, centered)
+        const symbolText = this.add.text(x, y - 5, spell.symbol, {
+            font: 'bold 32px monospace',
+            fill: spell.unlocked ? spell.color : '#444444'
+        });
+        symbolText.setOrigin(0.5);
+        
+        // Spell name - at bottom
+        const nameText = this.add.text(x, y + height/2 - 15, spell.name, {
+            font: 'bold 12px monospace',
+            fill: spell.unlocked ? '#ffffff' : '#666666'
+        });
+        nameText.setOrigin(0.5);
+        
+        // Mana cost - top right corner
+        const manaText = this.add.text(x + width/2 - 20, y - height/2 + 20, `${spell.cost} MP`, {
             font: '12px monospace',
             fill: spell.unlocked ? '#44ccff' : '#444444'
         });
@@ -503,30 +504,15 @@ class SpellbookScene extends Phaser.Scene {
         
         // Lock icon if locked
         if (!spell.unlocked) {
-            const lockIcon = this.add.text(x, y + 20, '🔒', {
+            const lockIcon = this.add.text(x, y + 15, '🔒', {
                 font: '20px monospace'
             });
             lockIcon.setOrigin(0.5);
             
-            const unlockText = this.add.text(x, y + height/2 - 10, `Unlocks at Level ${spell.unlockLevel}`, {
-                font: '10px monospace',
-                fill: '#666666'
-            });
-            unlockText.setOrigin(0.5);
-            
-            this.spellContainer.add([lockIcon, unlockText]);
-        } else {
-            // Mini description
-            const descText = this.add.text(x, y + 15, spell.description, {
-                font: '10px monospace',
-                fill: '#aaaaaa',
-                wordWrap: { width: width - 20 }
-            });
-            descText.setOrigin(0.5);
-            this.spellContainer.add(descText);
+            this.spellContainer.add(lockIcon);
         }
         
-        this.spellContainer.add([card, symbolText, nameText, keyBg, keyText, manaText]);
+        this.spellContainer.add([card, keyBg, keyText, symbolText, nameText, manaText]);
         
         // Interaction
         if (spell.unlocked) {
