@@ -1,0 +1,22 @@
+{
+  "id": 9,
+  "name": "The Mirror Maze",
+  "flavorText": "In the mirror maze, reflections upon reflections reveal the true path.",
+  "difficulty": "hard",
+  "mana": 7,
+  "start": [
+    ["▲", "▼", "►"],
+    ["◄", "◆", "◇"]
+  ],
+  "target": [
+    ["◇", "◆", "◄"],
+    ["►", "▼", "▲"]
+  ],
+  "solutions": [
+    ["transpose", "reverseRows", "transpose"],
+    ["reverse", "reverseRows"]
+  ],
+  "par": 2,
+  "hint": "Mirrors within mirrors",
+  "unlockedOperations": ["reverse", "transpose", "rotateRight", "rotateLeft", "reverseRows", "flatten", "reshape2x3", "reshape3x2"]
+}

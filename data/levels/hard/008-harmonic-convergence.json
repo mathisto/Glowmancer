@@ -1,0 +1,23 @@
+{
+  "id": 8,
+  "name": "The Harmonic Convergence",
+  "flavorText": "When all transformations align, the spheres achieve perfect harmonic resonance.",
+  "difficulty": "hard",
+  "mana": 8,
+  "start": [
+    ["★", "☆", "✦"],
+    ["◆", "◇", "◈"]
+  ],
+  "target": [
+    ["◈", "◇", "◆"],
+    ["✦", "☆", "★"]
+  ],
+  "solutions": [
+    ["reverse", "reverseRows"],
+    ["reverseRows", "reverse"],
+    ["transpose", "reverse", "transpose"]
+  ],
+  "par": 2,
+  "hint": "Order matters in transformation",
+  "unlockedOperations": ["reverse", "transpose", "rotateRight", "rotateLeft", "reverseRows", "flatten", "reshape2x3", "reshape3x2"]
+}
