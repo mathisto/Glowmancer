@@ -438,6 +438,9 @@ class GameScene extends Phaser.Scene {
         
         // Calculate and show score slightly below the level complete message
         const score = this.gameEngine.calculateScore();
+        
+        // Save progress
+        this.saveProgress(score);
         this.time.delayedCall(500, () => {
             const { width } = this.cameras.main;
             const scoreText = this.add.text(width/2, 220, `Score: ${score}`, {
@@ -480,7 +483,7 @@ class GameScene extends Phaser.Scene {
                 fill: '#aaaaff'
             }).setOrigin(0.5);
             
-            const menuText = this.add.text(width/2, height/2 + 60, '[Q] Return to Menu', {
+            const menuText = this.add.text(width/2, height/2 + 60, '[Q] Menu | [L] Level Select', {
                 font: '14px monospace',
                 fill: '#888888'
             }).setOrigin(0.5);
@@ -524,6 +527,10 @@ class GameScene extends Phaser.Scene {
                 if (event.key === 'q' || event.key === 'Q') {
                     this.input.keyboard.off('keydown', handleKey);
                     this.returnToMenu();
+                } else if (event.key === 'l' || event.key === 'L') {
+                    // L goes to level select
+                    this.input.keyboard.off('keydown', handleKey);
+                    this.scene.start('LevelSelect');
                 } else {
                     // Any other key goes to next level
                     this.input.keyboard.off('keydown', handleKey);
@@ -533,6 +540,49 @@ class GameScene extends Phaser.Scene {
             
             this.input.keyboard.on('keydown', handleKey);
         });
+    }
+
+    saveProgress(score) {
+        const levelNum = this.levelManager.currentLevelIndex + 1;
+        
+        // Load existing progress
+        let progress = {};
+        const savedProgress = localStorage.getItem('glowmancer_progress');
+        if (savedProgress) {
+            progress = JSON.parse(savedProgress);
+        } else {
+            progress = {
+                highestUnlocked: 1,
+                completedLevels: {},
+                stars: {},
+                totalStars: 0
+            };
+        }
+        
+        // Mark level as completed
+        progress.completedLevels[levelNum] = true;
+        
+        // Calculate stars based on score (3 stars for perfect, 2 for good, 1 for completion)
+        const level = this.levelManager.getCurrentLevel();
+        let stars = 1;
+        if (this.gameEngine.moveCount <= level.par) {
+            stars = 3;
+        } else if (this.gameEngine.moveCount <= level.par * 1.5) {
+            stars = 2;
+        }
+        
+        // Update stars if this is better than before
+        const previousStars = progress.stars[levelNum] || 0;
+        if (stars > previousStars) {
+            progress.totalStars = (progress.totalStars || 0) - previousStars + stars;
+            progress.stars[levelNum] = stars;
+        }
+        
+        // Unlock next level
+        progress.highestUnlocked = Math.max(progress.highestUnlocked, levelNum + 1);
+        
+        // Save to localStorage
+        localStorage.setItem('glowmancer_progress', JSON.stringify(progress));
     }
 
     returnToMenu() {
