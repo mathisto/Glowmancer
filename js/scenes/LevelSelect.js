@@ -96,19 +96,29 @@ class LevelSelect extends Phaser.Scene {
 
     createChapterSelector() {
         const { width } = this.cameras.main;
-        const startY = 100;
-        const buttonWidth = 150;
-        const buttonHeight = 40;
+        const startY = 120;  // Moved down to not overlap with CHAPTERS label
+        const buttonWidth = 170;  // Made wider to fit text
+        const buttonHeight = 45;  // Made taller to fit text
         const spacing = 10;
         const buttonsPerRow = 5;
         
+        // Clear any existing chapter container
+        if (this.chapterContainer) {
+            this.chapterContainer.destroy();
+        }
         this.chapterContainer = this.add.container(0, 0);
         
-        // Chapter label
-        this.add.text(width/2, startY - 25, 'CHAPTERS', {
-            font: 'bold 20px monospace',
-            fill: '#ccccff'
-        }).setOrigin(0.5);
+        // Clear chapter buttons array
+        this.chapterButtons = [];
+        
+        // Chapter label - only create once
+        if (!this.chaptersLabel) {
+            this.chaptersLabel = this.add.text(width/2, startY - 40, 'CHAPTERS', {
+                font: 'bold 20px monospace',
+                fill: '#ccccff'
+            });
+            this.chaptersLabel.setOrigin(0.5);
+        }
         
         this.chapters.forEach((chapter, index) => {
             const row = Math.floor(index / buttonsPerRow);
@@ -126,16 +136,16 @@ class LevelSelect extends Phaser.Scene {
             button.setAlpha(chapter.unlocked ? 1 : 0.5);
             button.setInteractive();
             
-            // Chapter text
-            const text = this.add.text(x, y - 7, `${chapter.id}. ${chapter.name}`, {
-                font: '14px monospace',
+            // Chapter text - smaller font to fit
+            const text = this.add.text(x, y - 8, `${chapter.id}. ${chapter.name}`, {
+                font: '13px monospace',
                 fill: chapter.unlocked ? '#ffffff' : '#666666'
             }).setOrigin(0.5);
             
             // Progress text
             const completed = this.getChapterProgress(chapter);
-            const progressText = this.add.text(x, y + 7, `${completed}/10`, {
-                font: '12px monospace',
+            const progressText = this.add.text(x, y + 8, `${completed}/10`, {
+                font: '11px monospace',
                 fill: chapter.unlocked ? '#ffcc00' : '#444444'
             }).setOrigin(0.5);
             
@@ -188,24 +198,32 @@ class LevelSelect extends Phaser.Scene {
             this.currentChapter = index;
             // this.sound.play('select', { volume: 0.3 }); // TODO: Add sound
             
-            // Update visual selection
-            this.chapterContainer.removeAll();
+            // Properly destroy and recreate containers
+            if (this.chapterContainer) {
+                this.chapterContainer.destroy();
+            }
             this.createChapterSelector();
             
             // Recreate level grid for new chapter
-            this.levelContainer.removeAll();
-            this.createLevelGrid();
+            this.createLevelGrid();  // This already handles destroying old container
         }
     }
 
     createLevelGrid() {
         const { width, height } = this.cameras.main;
         const chapter = this.chapters[this.currentChapter];
-        const startY = 220;
+        const startY = 240;  // Adjusted to give more room
         const gridWidth = 600;
         const gridHeight = 380;
         
+        // Clear any existing level container completely
+        if (this.levelContainer) {
+            this.levelContainer.destroy();
+        }
         this.levelContainer = this.add.container(0, 0);
+        
+        // Clear level buttons array
+        this.levelButtons = [];
         
         // Chapter name display
         const chapterTitle = this.add.text(width/2, startY - 20, chapter.name.toUpperCase(), {
