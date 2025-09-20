@@ -133,7 +133,10 @@ class MainMenu extends Phaser.Scene {
                     });
                     break;
                 case 'spellbook':
-                    console.log('Spellbook viewer not yet implemented');
+                    this.cameras.main.fade(500, 0, 0, 0);
+                    this.time.delayedCall(500, () => {
+                        this.scene.start('SpellbookScene');
+                    });
                     break;
                 case 'settings':
                     console.log('Settings not yet implemented');

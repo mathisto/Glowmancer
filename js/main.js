@@ -9,7 +9,7 @@ const config = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [Preloader, MainMenu, LevelSelect, GameScene],
+    scene: [Preloader, MainMenu, LevelSelect, SpellbookScene, GameScene],
     physics: {
         default: 'arcade',
         arcade: {
