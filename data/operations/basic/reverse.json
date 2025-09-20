@@ -7,7 +7,7 @@
   "key": "r",
   "category": "basic",
   "unlockLevel": 1,
-  "description": "Reverses the order of all elements, creating a perfect reflection",
+  "description": "Reverses the order of all orbs, creating a perfect reflection",
   "flavor": "As above, so below - the ancient incantation that flips reality itself",
   "examples": {
     "1d": {
@@ -20,9 +20,9 @@
     }
   },
   "implementation": {
-    "ramda": "R.reverse(arr)",
-    "vanilla": "arr.slice().reverse()",
-    "note": "For 2D arrays, reverses rows not elements within rows"
+    "ramda": "R.reverse(pattern)",
+    "vanilla": "pattern.slice().reverse()",
+    "note": "For 2D patterns, reverses rows not orbs within rows"
   },
   "tags": ["fundamental", "symmetry", "beginner"],
   "relatedOps": ["reverseRows", "mirror", "palindrome"]

@@ -1,6 +1,6 @@
-# Datamancy Operations (Spells)
+# Glowmancer Operations (Spells)
 
-Each operation is a spell in the Datamancy universe, defined in its own JSON file.
+Each operation is a spell in the Glowmancer universe, defined in its own JSON file.
 
 ## Directory Structure
 
@@ -27,7 +27,7 @@ Each operation file must follow this structure:
   "key": "r",
   "category": "basic",
   "unlockLevel": 1,
-  "description": "Reverses the order of all elements, like a mirror's reflection",
+  "description": "Reverses the order of all orbs, like a mirror's reflection",
   "flavor": "As above, so below - the ancient incantation flips reality itself",
   "examples": {
     "1d": {
@@ -40,9 +40,9 @@ Each operation file must follow this structure:
     }
   },
   "implementation": {
-    "ramda": "R.reverse(arr)",
-    "vanilla": "arr.slice().reverse()",
-    "note": "Creates new array, preserves original"
+    "ramda": "R.reverse(pattern)",
+    "vanilla": "pattern.slice().reverse()",
+    "note": "Creates new pattern, preserves original"
   },
   "tags": ["fundamental", "symmetry", "beginner"],
   "relatedOps": ["reverseRows", "mirror", "palindrome"]
@@ -56,7 +56,7 @@ Each operation file must follow this structure:
 - **id**: Unique identifier matching the function name
 - **name**: Magical/arcane name for the spell
 - **symbol**: Unicode symbol for visual representation
-- **aplSymbol**: APL/J/K language symbol (if applicable)
+- **glyphSymbol**: Mystical glyph symbol (if applicable)
 - **cost**: Mana cost (1-5 typically)
 - **key**: Keyboard shortcut
 - **category**: Directory category (basic/selection/weaving/pattern/advanced)
@@ -70,15 +70,15 @@ Each operation file must follow this structure:
 - **implementation**: Code hints for different approaches
 - **tags**: Searchable tags for categorization
 - **relatedOps**: Other operations that work well with this one
-- **restrictions**: Any limitations (e.g., "only works on 2D arrays")
+- **restrictions**: Any limitations (e.g., "only works on 2D patterns")
 
 ## Naming Conventions
 
 ### Magical Naming Guide
 
-Transform programming concepts into arcane terminology:
+Transform magical concepts into arcane terminology:
 
-| Programming Term | Magical Name | Example |
+| Transformation | Magical Name | Symbol |
 |-----------------|--------------|---------|
 | reverse | Spell of Reflection | ⌽ |
 | transpose | Matrix Transmutation | ⍉ |
@@ -105,11 +105,11 @@ Examples:
 2. Create JSON file following the schema
 3. Implement the operation in ArrayOperations.js using Ramda
 4. Add visual effects in SpellEffects.js
-5. Test with various array configurations
+5. Test with various pattern configurations
 
-## APL Symbol Reference
+## Mystical Symbol Reference
 
-Common APL symbols and their meanings:
+Common mystical symbols and their meanings:
 
 - ⌽ (reverse/rotate)
 - ⍉ (transpose)
@@ -133,5 +133,5 @@ Common APL symbols and their meanings:
 See individual category directories for complete examples:
 - basic/reverse.json - The foundational reflection spell
 - selection/first.json - Extract the prime element
-- weaving/zip.json - Interleave two arrays
+- weaving/zip.json - Interleave two patterns
 - pattern/spiral.json - Create spiral traversal
