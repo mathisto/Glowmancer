@@ -7,7 +7,7 @@ class MainMenu extends Phaser.Scene {
         const { width, height } = this.cameras.main;
         
         // Title with magical effect
-        const title = this.add.text(width/2, height/3, 'DATAMANCY', {
+        const title = this.add.text(width/2, height/3, 'GLOWMANCER', {
             font: 'bold 72px monospace',
             fill: '#ffffff',
             stroke: '#8a2be2',
@@ -17,7 +17,7 @@ class MainMenu extends Phaser.Scene {
         title.setShadow(0, 0, '#8a2be2', 10, true, true);
         
         // Subtitle
-        const subtitle = this.add.text(width/2, height/3 + 80, 'The Art of Data Magic', {
+        const subtitle = this.add.text(width/2, height/3 + 80, 'Master the Glow Magic', {
             font: '24px monospace',
             fill: '#ccccff'
         });

@@ -1,4 +1,4 @@
-// Datamancy - Main Game Configuration
+// Glowmancer - Main Game Configuration
 const config = {
     type: Phaser.AUTO,
     width: 1024,
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gameCanvas.focus();
     
     // Store game reference globally for debugging
-    window.datamancy = game;
+    window.glowmancer = game;
     
-    console.log('✨ Datamancy initialized! Use window.datamancy to access the game instance.');
+    console.log('✨ Glowmancer awakened! Use window.glowmancer to access the game instance.');
 });

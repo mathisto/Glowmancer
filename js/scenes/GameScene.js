@@ -60,7 +60,7 @@ class GameScene extends Phaser.Scene {
     createGameAreas() {
         const { width, height } = this.cameras.main;
         
-        // Current array area
+        // Current pattern area
         this.add.text(width/4, 140, 'CURRENT', {
             font: 'bold 20px monospace',
             fill: '#ffcc00'
@@ -69,7 +69,7 @@ class GameScene extends Phaser.Scene {
         this.currentArea = this.add.rectangle(width/4, 250, 300, 200, 0x1a1a2e, 0.8);
         this.currentArea.setStrokeStyle(2, 0x8a2be2);
         
-        // Target array area
+        // Target pattern area
         this.add.text(3*width/4, 140, 'TARGET', {
             font: 'bold 20px monospace',
             fill: '#44ff44'
@@ -215,23 +215,23 @@ class GameScene extends Phaser.Scene {
         this.glyphSprites = [];
         this.targetGlyphSprites = [];
         
-        // Create current array glyphs
+        // Create current pattern orbs
         this.updateGlyphDisplay(this.gameEngine.currentArray, width/4, 250, this.glyphSprites, true);
         
-        // Create target array glyphs
+        // Create target pattern orbs
         this.updateGlyphDisplay(this.gameEngine.targetArray, 3*width/4, 250, this.targetGlyphSprites, false);
     }
 
-    updateGlyphDisplay(array, centerX, centerY, spriteArray, interactive = false) {
-        const flat = this.flattenForDisplay(array);
-        const isMatrix = Array.isArray(array[0]);
+    updateGlyphDisplay(pattern, centerX, centerY, spriteArray, interactive = false) {
+        const flat = this.flattenForDisplay(pattern);
+        const isMatrix = Array.isArray(pattern[0]);
         
         let positions = [];
         
         if (isMatrix) {
-            // 2D array layout
-            const rows = array.length;
-            const cols = array[0].length;
+            // 2D pattern layout
+            const rows = pattern.length;
+            const cols = pattern[0].length;
             const spacing = 60;
             
             for (let row = 0; row < rows; row++) {
@@ -242,7 +242,7 @@ class GameScene extends Phaser.Scene {
                 }
             }
         } else {
-            // 1D array layout
+            // 1D pattern layout
             const count = flat.length;
             const spacing = 60;
             
@@ -253,7 +253,7 @@ class GameScene extends Phaser.Scene {
                     positions.push({ x, y: centerY });
                 }
             } else {
-                // Grid layout for larger arrays
+                // Grid layout for larger patterns
                 const cols = 3;
                 const rows = Math.ceil(count / cols);
                 
