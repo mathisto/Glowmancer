@@ -1,0 +1,15 @@
+{
+  "id": 11,
+  "name": "Mirror Lake",
+  "flavorText": "The still waters reflect perfect symmetry...",
+  "difficulty": "easy",
+  "mana": 5,
+  "start": ["◆", "◇", "◈"],
+  "target": ["◆", "◇", "◈", "◈", "◇", "◆"],
+  "solutions": [
+    ["mirror"]
+  ],
+  "par": 1,
+  "hint": "Create a reflection",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror"]
+}

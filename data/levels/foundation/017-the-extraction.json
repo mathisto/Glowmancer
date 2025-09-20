@@ -1,0 +1,16 @@
+{
+  "id": 17,
+  "name": "The Extraction",
+  "flavorText": "Extract specific elements from the chaos.",
+  "difficulty": "medium",
+  "mana": 12,
+  "start": ["◆", "◇", "◈", "◊", "●", "○", "■"],
+  "target": ["◇", "◊", "○"],
+  "solutions": [
+    ["tail", "halve", "first", "tail", "halve", "first", "tail"],
+    ["tail", "init", "init", "init", "halve", "last", "tail"]
+  ],
+  "par": 6,
+  "hint": "Skip every other pair",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror", "halve", "flatten", "reshape2x3", "reshape3x2"]
+}

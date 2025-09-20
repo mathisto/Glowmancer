@@ -1,0 +1,16 @@
+{
+  "id": 13,
+  "name": "Selective Symmetry",
+  "flavorText": "Sometimes we must choose which elements deserve reflection.",
+  "difficulty": "easy",
+  "mana": 8,
+  "start": ["◆", "◇", "◈", "◊", "●", "○"],
+  "target": ["◆", "◇", "◈", "◈", "◇", "◆"],
+  "solutions": [
+    ["init", "init", "init", "mirror"],
+    ["tail", "tail", "tail", "reverse", "mirror"]
+  ],
+  "par": 3,
+  "hint": "Select the right elements, then mirror",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror", "halve"]
+}

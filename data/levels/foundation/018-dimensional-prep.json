@@ -1,0 +1,16 @@
+{
+  "id": 18,
+  "name": "Dimensional Preparation",
+  "flavorText": "Prepare your arrays for the coming transformation.",
+  "difficulty": "medium",
+  "mana": 12,
+  "start": ["★", "☆", "✦", "✧", "◈", "◊"],
+  "target": [["★", "☆", "✦"], ["◊", "◈", "✧"]],
+  "solutions": [
+    ["reverse", "reshape2x3", "reverseRows"],
+    ["rotateLeft", "rotateLeft", "rotateLeft", "reshape2x3", "reverseRows"]
+  ],
+  "par": 3,
+  "hint": "Prepare for 2D transformation",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror", "halve", "flatten", "reshape2x3", "reshape3x2"]
+}

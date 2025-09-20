@@ -1,0 +1,19 @@
+{
+  "id": 20,
+  "name": "Dimensional Architect",
+  "flavorText": "The master of dimensions challenges you. Shape reality itself to match their vision!",
+  "difficulty": "boss",
+  "mana": 20,
+  "start": ["★", "☆", "✦", "✧", "◈", "◊"],
+  "target": [["✦", "☆", "★"], ["★", "☆", "✦"]],
+  "solutions": [
+    ["init", "init", "init", "mirror", "reshape2x3", "reverseRows"],
+    ["halve", "first", "flatten", "mirror", "reshape2x3", "reverseRows"]
+  ],
+  "par": 6,
+  "hint": "Master all you have learned: selection, mirroring, and dimensional transformation",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror", "halve", "flatten", "reshape2x3", "reshape3x2"],
+  "isBoss": true,
+  "bossTitle": "Defeat the Dimensional Architect!",
+  "victoryText": "The Dimensional Architect bows. 'You have mastered the foundations of array magic. But greater challenges await...'"
+}

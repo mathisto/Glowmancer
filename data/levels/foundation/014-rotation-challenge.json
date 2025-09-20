@@ -1,0 +1,16 @@
+{
+  "id": 14,
+  "name": "Rotation Challenge",
+  "flavorText": "Spin the elements to find what you seek.",
+  "difficulty": "easy",
+  "mana": 10,
+  "start": ["★", "☆", "✦", "✧", "◈"],
+  "target": ["✦", "✧"],
+  "solutions": [
+    ["rotateRight", "rotateRight", "tail", "init", "init"],
+    ["rotateLeft", "rotateLeft", "rotateLeft", "init", "init", "init"]
+  ],
+  "par": 5,
+  "hint": "Rotate to position, then trim",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror", "halve"]
+}

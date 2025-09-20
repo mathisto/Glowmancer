@@ -1,0 +1,17 @@
+{
+  "id": 15,
+  "name": "The Perfect Center",
+  "flavorText": "Find the heart of the array and make it whole.",
+  "difficulty": "easy",
+  "mana": 10,
+  "start": ["◆", "◇", "◈", "◊", "●"],
+  "target": ["◈"],
+  "solutions": [
+    ["tail", "tail", "init", "init"],
+    ["rotateLeft", "rotateLeft", "first"],
+    ["init", "init", "tail", "tail"]
+  ],
+  "par": 3,
+  "hint": "The center element awaits",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror", "halve"]
+}

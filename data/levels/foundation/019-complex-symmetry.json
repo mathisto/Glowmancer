@@ -1,0 +1,16 @@
+{
+  "id": 19,
+  "name": "Complex Symmetry",
+  "flavorText": "Master the art of selective mirroring and transformation.",
+  "difficulty": "medium",
+  "mana": 15,
+  "start": ["◆", "◇", "◈", "◊"],
+  "target": [["◆", "◊"], ["◊", "◆"]],
+  "solutions": [
+    ["first", "last", "halve", "mirror", "halve"],
+    ["halve", "transpose", "flatten", "halve", "reverse", "last", "halve"]
+  ],
+  "par": 5,
+  "hint": "Select edges, then create symmetry",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror", "halve", "flatten", "reshape2x3", "reshape3x2"]
+}

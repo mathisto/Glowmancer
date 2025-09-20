@@ -1,0 +1,15 @@
+{
+  "id": 12,
+  "name": "The Bisection",
+  "flavorText": "A perfect split divides the mana spheres in twain.",
+  "difficulty": "easy",
+  "mana": 5,
+  "start": ["★", "☆", "✦", "✧"],
+  "target": [["★", "☆"], ["✦", "✧"]],
+  "solutions": [
+    ["halve"]
+  ],
+  "par": 1,
+  "hint": "Split the array in half",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror", "halve"]
+}

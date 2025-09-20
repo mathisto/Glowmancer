@@ -1,0 +1,16 @@
+{
+  "id": 16,
+  "name": "Mirror and Select",
+  "flavorText": "Create symmetry, then choose wisely.",
+  "difficulty": "medium",
+  "mana": 12,
+  "start": ["★", "☆", "✦"],
+  "target": [["★", "☆"], ["☆", "★"]],
+  "solutions": [
+    ["mirror", "halve", "halve", "reverse", "last", "halve"],
+    ["mirror", "init", "halve"]
+  ],
+  "par": 3,
+  "hint": "Mirror first, then divide carefully",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror", "halve"]
+}
