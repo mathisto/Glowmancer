@@ -1,0 +1,30 @@
+{
+  "id": "spiral",
+  "name": "Vortex Unwinding",
+  "symbol": "◉",
+  "aplSymbol": "⍉⊖",
+  "cost": 4,
+  "key": "s",
+  "category": "pattern",
+  "unlockLevel": 25,
+  "description": "Traverses a 2D array in spiral pattern from outside to center",
+  "flavor": "Follow the ancient labyrinth path, from the outer realms to the sacred center",
+  "examples": {
+    "2x2": {
+      "input": [["◆", "◇"], ["◈", "◊"]],
+      "output": ["◆", "◇", "◊", "◈"]
+    },
+    "3x3": {
+      "input": [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]],
+      "output": ["1", "2", "3", "6", "9", "8", "7", "4", "5"]
+    }
+  },
+  "implementation": {
+    "algorithm": "Traverse outer ring, then recursively spiral inner matrix",
+    "complexity": "O(n*m) where n,m are dimensions",
+    "note": "Only works on 2D rectangular arrays"
+  },
+  "restrictions": "Requires 2D array",
+  "tags": ["pattern", "traversal", "advanced", "labyrinth"],
+  "relatedOps": ["zigzag", "diagonal", "rotateLeft"]
+}

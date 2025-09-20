@@ -1,0 +1,30 @@
+{
+  "id": "transpose",
+  "name": "Matrix Transmutation",
+  "symbol": "⤨",
+  "aplSymbol": "⍉",
+  "cost": 1,
+  "key": "t",
+  "category": "basic",
+  "unlockLevel": 3,
+  "description": "Flips a matrix along its diagonal, swapping rows and columns",
+  "flavor": "The sacred geometry shifts - what was horizontal becomes vertical",
+  "examples": {
+    "2d": {
+      "input": [["◆", "◇"], ["◈", "◊"]],
+      "output": [["◆", "◈"], ["◇", "◊"]]
+    },
+    "2x3": {
+      "input": [["◆", "◇", "◈"], ["◊", "★", "☆"]],
+      "output": [["◆", "◊"], ["◇", "★"], ["◈", "☆"]]
+    }
+  },
+  "implementation": {
+    "ramda": "R.transpose(arr)",
+    "vanilla": "arr[0].map((_, i) => arr.map(row => row[i]))",
+    "note": "Only affects 2D arrays"
+  },
+  "restrictions": "Requires 2D array",
+  "tags": ["fundamental", "matrix", "geometry"],
+  "relatedOps": ["rotateLeft", "rotateRight"]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "rotateLeft",
+  "name": "Widdershins Rotation",
+  "symbol": "⟲",
+  "aplSymbol": "⊖",
+  "cost": 2,
+  "key": "a",
+  "category": "basic",
+  "unlockLevel": 2,
+  "description": "Rotates elements counter-clockwise, moving first to last",
+  "flavor": "Against the sun's path, the elements dance in ancient patterns",
+  "examples": {
+    "1d": {
+      "input": ["◆", "◇", "◈", "◊"],
+      "output": ["◇", "◈", "◊", "◆"]
+    },
+    "2d": {
+      "input": [["◆", "◇"], ["◈", "◊"]],
+      "output": [["◇", "◊"], ["◆", "◈"]]
+    }
+  },
+  "implementation": {
+    "ramda": "R.append(R.head(arr), R.tail(arr))",
+    "vanilla1d": "[...arr.slice(1), arr[0]]",
+    "note": "For 2D: transposes then reverses each row"
+  },
+  "tags": ["rotation", "circular", "movement"],
+  "relatedOps": ["rotateRight", "transpose"]
+}

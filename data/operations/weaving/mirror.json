@@ -1,0 +1,29 @@
+{
+  "id": "mirror",
+  "name": "Twin Reflection",
+  "symbol": "⧉",
+  "aplSymbol": "⌽,⊢",
+  "cost": 4,
+  "key": "m",
+  "category": "weaving",
+  "unlockLevel": 11,
+  "description": "Creates a mirror image by appending the reversed array to itself",
+  "flavor": "One becomes two, the shadow joins the light in perfect symmetry",
+  "examples": {
+    "1d": {
+      "input": ["◆", "◇", "◈"],
+      "output": ["◆", "◇", "◈", "◈", "◇", "◆"]
+    },
+    "2d": {
+      "input": [["◆", "◇"], ["◈", "◊"]],
+      "output": [["◆", "◇"], ["◈", "◊"], ["◈", "◊"], ["◆", "◇"]]
+    }
+  },
+  "implementation": {
+    "ramda": "arr => R.concat(arr, R.reverse(arr))",
+    "vanilla": "[...arr, ...arr.slice().reverse()]",
+    "note": "Doubles array length by appending reversed copy"
+  },
+  "tags": ["weaving", "duplication", "symmetry", "expansion"],
+  "relatedOps": ["palindrome", "reverse", "flatten"]
+}

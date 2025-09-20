@@ -1,0 +1,29 @@
+{
+  "id": "first",
+  "name": "Prima Extraction",
+  "symbol": "◂",
+  "aplSymbol": "⊃",
+  "cost": 2,
+  "key": "h",
+  "category": "selection",
+  "unlockLevel": 8,
+  "description": "Extracts only the first element, discarding all others",
+  "flavor": "The prime essence, the alpha point from which all else flows",
+  "examples": {
+    "1d": {
+      "input": ["◆", "◇", "◈", "◊"],
+      "output": ["◆"]
+    },
+    "2d": {
+      "input": [["◆", "◇"], ["◈", "◊"]],
+      "output": [["◆", "◇"]]
+    }
+  },
+  "implementation": {
+    "ramda": "R.take(1, arr)",
+    "vanilla": "arr.slice(0, 1)",
+    "note": "Returns array with single element, not the element itself"
+  },
+  "tags": ["selection", "reduction", "extraction"],
+  "relatedOps": ["last", "tail", "init"]
+}

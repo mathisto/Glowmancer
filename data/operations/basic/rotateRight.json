@@ -1,0 +1,29 @@
+{
+  "id": "rotateRight",
+  "name": "Sunwise Rotation",
+  "symbol": "⟳",
+  "aplSymbol": "⌽⊖",
+  "cost": 2,
+  "key": "d",
+  "category": "basic",
+  "unlockLevel": 2,
+  "description": "Rotates elements clockwise, moving last to first",
+  "flavor": "Following the sun's sacred path, the elements shift in harmony",
+  "examples": {
+    "1d": {
+      "input": ["◆", "◇", "◈", "◊"],
+      "output": ["◊", "◆", "◇", "◈"]
+    },
+    "2d": {
+      "input": [["◆", "◇"], ["◈", "◊"]],
+      "output": [["◈", "◆"], ["◊", "◇"]]
+    }
+  },
+  "implementation": {
+    "ramda": "R.prepend(R.last(arr), R.init(arr))",
+    "vanilla1d": "[arr[arr.length-1], ...arr.slice(0, -1)]",
+    "note": "For 2D: reverses each row then transposes"
+  },
+  "tags": ["rotation", "circular", "movement"],
+  "relatedOps": ["rotateLeft", "transpose"]
+}

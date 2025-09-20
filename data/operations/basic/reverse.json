@@ -1,0 +1,29 @@
+{
+  "id": "reverse",
+  "name": "Spell of Reflection",
+  "symbol": "⇄",
+  "aplSymbol": "⌽",
+  "cost": 1,
+  "key": "r",
+  "category": "basic",
+  "unlockLevel": 1,
+  "description": "Reverses the order of all elements, creating a perfect reflection",
+  "flavor": "As above, so below - the ancient incantation that flips reality itself",
+  "examples": {
+    "1d": {
+      "input": ["◆", "◇", "◈", "◊"],
+      "output": ["◊", "◈", "◇", "◆"]
+    },
+    "2d": {
+      "input": [["◆", "◇"], ["◈", "◊"]],
+      "output": [["◈", "◊"], ["◆", "◇"]]
+    }
+  },
+  "implementation": {
+    "ramda": "R.reverse(arr)",
+    "vanilla": "arr.slice().reverse()",
+    "note": "For 2D arrays, reverses rows not elements within rows"
+  },
+  "tags": ["fundamental", "symmetry", "beginner"],
+  "relatedOps": ["reverseRows", "mirror", "palindrome"]
+}

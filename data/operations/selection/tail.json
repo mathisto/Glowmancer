@@ -1,0 +1,29 @@
+{
+  "id": "tail",
+  "name": "Essence Shedding",
+  "symbol": "▫▸",
+  "aplSymbol": "↓",
+  "cost": 2,
+  "key": "x",
+  "category": "selection",
+  "unlockLevel": 5,
+  "description": "Removes the first element, keeping all that follows",
+  "flavor": "Cast off the beginning to reveal the path ahead",
+  "examples": {
+    "1d": {
+      "input": ["◆", "◇", "◈", "◊"],
+      "output": ["◇", "◈", "◊"]
+    },
+    "2d": {
+      "input": [["◆", "◇"], ["◈", "◊"], ["★", "☆"]],
+      "output": [["◈", "◊"], ["★", "☆"]]
+    }
+  },
+  "implementation": {
+    "ramda": "R.tail(arr)",
+    "vanilla": "arr.slice(1)",
+    "note": "Drops first element/row"
+  },
+  "tags": ["selection", "reduction", "trimming"],
+  "relatedOps": ["first", "init", "last"]
+}

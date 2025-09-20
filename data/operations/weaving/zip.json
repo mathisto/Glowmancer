@@ -1,0 +1,26 @@
+{
+  "id": "zip",
+  "name": "Thread Binding",
+  "symbol": "⋈",
+  "aplSymbol": "⍪",
+  "cost": 3,
+  "key": "z",
+  "category": "weaving",
+  "unlockLevel": 15,
+  "description": "Interleaves elements from two arrays like weaving threads",
+  "flavor": "Two streams become one, their essences intertwined in the cosmic tapestry",
+  "examples": {
+    "2arrays": {
+      "input": [["◆", "◇", "◈"], ["◊", "★", "☆"]],
+      "output": ["◆", "◊", "◇", "★", "◈", "☆"]
+    }
+  },
+  "implementation": {
+    "ramda": "R.flatten(R.zip(arr[0], arr[1]))",
+    "custom": "arr[0].flatMap((v, i) => [v, arr[1][i]].filter(x => x !== undefined))",
+    "note": "Requires 2-element array of arrays"
+  },
+  "restrictions": "Input must be 2D array with exactly 2 rows",
+  "tags": ["weaving", "combination", "interleave"],
+  "relatedOps": ["unzip", "chunk", "flatten"]
+}
