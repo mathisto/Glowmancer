@@ -15,5 +15,5 @@
   "unlockedOperations": ["reverse", "rotateRight", "rotateLeft", "transpose", "reverseRows", "tail", "last", "init", "first", "mirror", "halve", "flatten", "reshape2x3", "reshape3x2"],
   "isBoss": true,
   "bossTitle": "Defeat the Dimensional Architect!",
-  "victoryText": "The Dimensional Architect bows. 'You have mastered the foundations of array magic. But greater challenges await...'"
+  "victoryText": "The Dimensional Architect bows. 'You have mastered the foundations of glow magic. But greater mysteries await...'"
 }

@@ -1,7 +1,7 @@
 {
   "id": 18,
   "name": "Dimensional Preparation",
-  "flavorText": "Prepare your arrays for the coming transformation.",
+  "flavorText": "Prepare your orbs for the coming transformation.",
   "difficulty": "medium",
   "mana": 12,
   "start": ["★", "☆", "✦", "✧", "◈", "◊"],
