@@ -27,6 +27,69 @@ class SpellEffects {
             case 'reshape3x2':
                 this.reshapeEffect(glyphSprites, onComplete);
                 break;
+            // New Uiua-inspired operations
+            case 'first':
+            case 'last':
+            case 'tail':
+            case 'init':
+                this.selectionEffect(glyphSprites, onComplete);
+                break;
+            case 'drop':
+            case 'take':
+            case 'select':
+            case 'where':
+            case 'keep':
+                this.filterEffect(glyphSprites, onComplete);
+                break;
+            case 'deduplicate':
+            case 'dedupe':
+                this.deduplicateEffect(glyphSprites, onComplete);
+                break;
+            case 'classify':
+                this.classifyEffect(glyphSprites, onComplete);
+                break;
+            case 'fold':
+                this.foldEffect(glyphSprites, onComplete);
+                break;
+            case 'partition':
+                this.partitionEffect(glyphSprites, onComplete);
+                break;
+            case 'stencil':
+                this.stencilEffect(glyphSprites, onComplete);
+                break;
+            case 'couple':
+            case 'join':
+                this.joinEffect(glyphSprites, onComplete);
+                break;
+            case 'box':
+            case 'unbox':
+                this.boxEffect(glyphSprites, onComplete);
+                break;
+            case 'mirror':
+                this.mirrorEffect(glyphSprites, onComplete);
+                break;
+            case 'zip':
+            case 'unzip':
+                this.zipEffect(glyphSprites, onComplete);
+                break;
+            case 'spiral':
+                this.spiralEffect(glyphSprites, onComplete);
+                break;
+            case 'zigzag':
+                this.zigzagEffect(glyphSprites, onComplete);
+                break;
+            case 'diagonal':
+                this.diagonalEffect(glyphSprites, onComplete);
+                break;
+            case 'halve':
+                this.halveEffect(glyphSprites, onComplete);
+                break;
+            case 'chunk':
+                this.chunkEffect(glyphSprites, onComplete);
+                break;
+            case 'palindrome':
+                this.palindromeEffect(glyphSprites, onComplete);
+                break;
             default:
                 // For any unhandled operations, just do a simple pulse
                 this.genericEffect(glyphSprites, onComplete);
@@ -378,5 +441,356 @@ class SpellEffects {
                 onComplete: () => rune.destroy()
             });
         }
+    }
+
+    // New effects for Uiua-inspired operations
+    selectionEffect(sprites, onComplete) {
+        // Highlight selection with a beam
+        sprites.forEach((sprite, i) => {
+            sprite.pulse('#00ffff');
+            this.scene.time.delayedCall(i * 50, () => {
+                sprite.sparkle();
+                if (i === sprites.length - 1 && onComplete) {
+                    this.scene.time.delayedCall(200, onComplete);
+                }
+            });
+        });
+    }
+
+    filterEffect(sprites, onComplete) {
+        // Sieve-like filtering effect
+        const centerX = this.scene.cameras.main.width / 4;
+        const sieve = this.scene.add.rectangle(centerX, 250, 200, 2, 0xffaa00, 1);
+        
+        this.scene.tweens.add({
+            targets: sieve,
+            scaleY: 50,
+            alpha: 0,
+            duration: 400,
+            ease: 'Power2',
+            onComplete: () => sieve.destroy()
+        });
+        
+        sprites.forEach((sprite, i) => {
+            sprite.pulse('#ffaa00');
+            if (i === sprites.length - 1 && onComplete) {
+                this.scene.time.delayedCall(300, onComplete);
+            }
+        });
+    }
+
+    deduplicateEffect(sprites, onComplete) {
+        // Merging duplicate effect
+        this.createMagicCircle(this.scene.cameras.main.width / 4, 250, 0xff00ff);
+        sprites.forEach((sprite, i) => {
+            sprite.pulse('#ff00ff');
+            if (i === sprites.length - 1 && onComplete) {
+                this.scene.time.delayedCall(300, onComplete);
+            }
+        });
+    }
+
+    classifyEffect(sprites, onComplete) {
+        // Number assignment effect
+        sprites.forEach((sprite, i) => {
+            const num = this.scene.add.text(sprite.x, sprite.y - 30, i.toString(), {
+                font: 'bold 20px monospace',
+                fill: '#ffff00'
+            });
+            num.setOrigin(0.5);
+            
+            this.scene.tweens.add({
+                targets: num,
+                y: sprite.y - 50,
+                alpha: 0,
+                duration: 600,
+                ease: 'Power2',
+                onComplete: () => num.destroy()
+            });
+            
+            sprite.pulse('#ffff00');
+            if (i === sprites.length - 1 && onComplete) {
+                this.scene.time.delayedCall(300, onComplete);
+            }
+        });
+    }
+
+    foldEffect(sprites, onComplete) {
+        // Converging fold effect
+        const centerX = this.scene.cameras.main.width / 4;
+        const centerY = 250;
+        
+        sprites.forEach((sprite, i) => {
+            const angle = (i / sprites.length) * Math.PI * 2;
+            const line = this.scene.add.line(
+                0, 0,
+                centerX, centerY,
+                sprite.x, sprite.y,
+                0x00ff00, 0.5
+            );
+            
+            this.scene.tweens.add({
+                targets: line,
+                alpha: 0,
+                duration: 500,
+                onComplete: () => line.destroy()
+            });
+            
+            sprite.pulse('#00ff00');
+        });
+        
+        if (onComplete) this.scene.time.delayedCall(400, onComplete);
+    }
+
+    partitionEffect(sprites, onComplete) {
+        // Splitting partition walls
+        const centerX = this.scene.cameras.main.width / 4;
+        
+        for (let i = 1; i < 3; i++) {
+            const wall = this.scene.add.rectangle(centerX + i * 60, 250, 2, 100, 0xff8800, 1);
+            this.scene.tweens.add({
+                targets: wall,
+                scaleX: 20,
+                alpha: 0,
+                duration: 400,
+                onComplete: () => wall.destroy()
+            });
+        }
+        
+        sprites.forEach(sprite => sprite.pulse('#ff8800'));
+        if (onComplete) this.scene.time.delayedCall(300, onComplete);
+    }
+
+    stencilEffect(sprites, onComplete) {
+        // Sliding window effect
+        const window = this.scene.add.rectangle(100, 250, 80, 80, 0x000000, 0);
+        window.setStrokeStyle(3, 0x00ffff, 1);
+        
+        this.scene.tweens.add({
+            targets: window,
+            x: 400,
+            duration: 600,
+            ease: 'Power2',
+            onComplete: () => window.destroy()
+        });
+        
+        sprites.forEach(sprite => sprite.pulse('#00ffff'));
+        if (onComplete) this.scene.time.delayedCall(500, onComplete);
+    }
+
+    joinEffect(sprites, onComplete) {
+        // Connecting lines between elements
+        const centerX = this.scene.cameras.main.width / 4;
+        const connector = this.scene.add.line(0, 0, centerX - 50, 250, centerX + 50, 250, 0xffff00, 1);
+        connector.setLineWidth(3);
+        
+        this.scene.tweens.add({
+            targets: connector,
+            scaleX: 2,
+            alpha: 0,
+            duration: 400,
+            onComplete: () => connector.destroy()
+        });
+        
+        sprites.forEach(sprite => sprite.pulse('#ffff00'));
+        if (onComplete) this.scene.time.delayedCall(300, onComplete);
+    }
+
+    boxEffect(sprites, onComplete) {
+        // Box forming/breaking effect
+        const centerX = this.scene.cameras.main.width / 4;
+        const box = this.scene.add.rectangle(centerX, 250, 150, 150, 0x000000, 0);
+        box.setStrokeStyle(2, 0xffffff, 1);
+        
+        this.scene.tweens.add({
+            targets: box,
+            scaleX: 0.5,
+            scaleY: 0.5,
+            alpha: 0,
+            duration: 400,
+            ease: 'Back',
+            onComplete: () => box.destroy()
+        });
+        
+        sprites.forEach(sprite => sprite.pulse('#ffffff'));
+        if (onComplete) this.scene.time.delayedCall(300, onComplete);
+    }
+
+    mirrorEffect(sprites, onComplete) {
+        // Mirror reflection line
+        const centerX = this.scene.cameras.main.width / 4;
+        const mirrorLine = this.scene.add.rectangle(centerX, 250, 2, 200, 0x8888ff, 1);
+        
+        this.scene.tweens.add({
+            targets: mirrorLine,
+            scaleX: 100,
+            alpha: 0,
+            duration: 500,
+            ease: 'Power2',
+            onComplete: () => mirrorLine.destroy()
+        });
+        
+        sprites.forEach((sprite, i) => {
+            this.scene.tweens.add({
+                targets: sprite,
+                scaleX: -1,
+                duration: 200,
+                yoyo: true,
+                ease: 'Power2'
+            });
+            sprite.pulse('#8888ff');
+        });
+        
+        if (onComplete) this.scene.time.delayedCall(400, onComplete);
+    }
+
+    zipEffect(sprites, onComplete) {
+        // Weaving/interleaving effect
+        sprites.forEach((sprite, i) => {
+            this.scene.tweens.add({
+                targets: sprite,
+                y: sprite.y + (i % 2 === 0 ? -20 : 20),
+                duration: 200,
+                yoyo: true,
+                ease: 'Power2'
+            });
+            sprite.pulse('#ff88ff');
+        });
+        
+        if (onComplete) this.scene.time.delayedCall(400, onComplete);
+    }
+
+    spiralEffect(sprites, onComplete) {
+        // Spiral vortex effect
+        const centerX = this.scene.cameras.main.width / 4;
+        const centerY = 250;
+        const spiral = this.scene.add.text(centerX, centerY, '@', {
+            font: 'bold 60px monospace',
+            fill: '#ff00ff'
+        });
+        spiral.setOrigin(0.5);
+        
+        this.scene.tweens.add({
+            targets: spiral,
+            angle: 720,
+            scaleX: 2,
+            scaleY: 2,
+            alpha: 0,
+            duration: 600,
+            ease: 'Power2',
+            onComplete: () => spiral.destroy()
+        });
+        
+        sprites.forEach(sprite => sprite.pulse('#ff00ff'));
+        if (onComplete) this.scene.time.delayedCall(500, onComplete);
+    }
+
+    zigzagEffect(sprites, onComplete) {
+        // Snake pattern visualization
+        const path = this.scene.add.graphics();
+        path.lineStyle(2, 0x00ff00, 1);
+        path.beginPath();
+        
+        sprites.forEach((sprite, i) => {
+            if (i === 0) path.moveTo(sprite.x, sprite.y);
+            else path.lineTo(sprite.x, sprite.y);
+        });
+        
+        path.strokePath();
+        
+        this.scene.tweens.add({
+            targets: path,
+            alpha: 0,
+            duration: 500,
+            onComplete: () => path.destroy()
+        });
+        
+        sprites.forEach(sprite => sprite.pulse('#00ff00'));
+        if (onComplete) this.scene.time.delayedCall(400, onComplete);
+    }
+
+    diagonalEffect(sprites, onComplete) {
+        // Diagonal extraction line
+        const line = this.scene.add.line(0, 0, 100, 150, 400, 350, 0xffff00, 1);
+        line.setLineWidth(3);
+        
+        this.scene.tweens.add({
+            targets: line,
+            alpha: 0,
+            duration: 500,
+            onComplete: () => line.destroy()
+        });
+        
+        sprites.forEach(sprite => sprite.pulse('#ffff00'));
+        if (onComplete) this.scene.time.delayedCall(400, onComplete);
+    }
+
+    halveEffect(sprites, onComplete) {
+        // Bisection cutting effect
+        const centerX = this.scene.cameras.main.width / 4;
+        const blade = this.scene.add.rectangle(centerX, 250, 2, 200, 0xff0000, 1);
+        
+        this.scene.tweens.add({
+            targets: blade,
+            scaleX: 50,
+            alpha: 0,
+            duration: 300,
+            ease: 'Power2',
+            onComplete: () => blade.destroy()
+        });
+        
+        sprites.forEach(sprite => sprite.pulse('#ff0000'));
+        if (onComplete) this.scene.time.delayedCall(300, onComplete);
+    }
+
+    chunkEffect(sprites, onComplete) {
+        // Grouping brackets effect
+        for (let i = 0; i < sprites.length; i += 2) {
+            const bracket = this.scene.add.text(sprites[i].x - 30, sprites[i].y, '[', {
+                font: 'bold 30px monospace',
+                fill: '#00ffff'
+            });
+            const bracket2 = this.scene.add.text(sprites[Math.min(i + 1, sprites.length - 1)].x + 30, sprites[i].y, ']', {
+                font: 'bold 30px monospace',
+                fill: '#00ffff'
+            });
+            
+            [bracket, bracket2].forEach(b => {
+                this.scene.tweens.add({
+                    targets: b,
+                    alpha: 0,
+                    duration: 500,
+                    onComplete: () => b.destroy()
+                });
+            });
+        }
+        
+        sprites.forEach(sprite => sprite.pulse('#00ffff'));
+        if (onComplete) this.scene.time.delayedCall(400, onComplete);
+    }
+
+    palindromeEffect(sprites, onComplete) {
+        // Ouroboros circle effect
+        const centerX = this.scene.cameras.main.width / 4;
+        const centerY = 250;
+        const ouroboros = this.scene.add.text(centerX, centerY, '⥁', {
+            font: 'bold 60px monospace',
+            fill: '#ff00ff'
+        });
+        ouroboros.setOrigin(0.5);
+        
+        this.scene.tweens.add({
+            targets: ouroboros,
+            angle: 360,
+            scaleX: 2,
+            scaleY: 2,
+            alpha: 0,
+            duration: 600,
+            ease: 'Power2',
+            onComplete: () => ouroboros.destroy()
+        });
+        
+        sprites.forEach(sprite => sprite.pulse('#ff00ff'));
+        if (onComplete) this.scene.time.delayedCall(500, onComplete);
     }
 }
