@@ -1,0 +1,22 @@
+{
+  "id": 7,
+  "name": "The Planar Shift",
+  "flavorText": "To master dimensional magic, one must learn to flatten and reshape reality itself.",
+  "difficulty": "medium",
+  "mana": 7,
+  "start": [
+    ["▲", "▼"],
+    ["►", "◄"],
+    ["◆", "◇"]
+  ],
+  "target": [
+    ["◇", "◆", "◄"],
+    ["►", "▼", "▲"]
+  ],
+  "solutions": [
+    ["flatten", "reverse", "reshape2x3"]
+  ],
+  "par": 3,
+  "hint": "Flatten, transform, then reshape",
+  "unlockedOperations": ["reverse", "transpose", "rotateRight", "rotateLeft", "reverseRows", "flatten", "reshape2x3", "reshape3x2"]
+}

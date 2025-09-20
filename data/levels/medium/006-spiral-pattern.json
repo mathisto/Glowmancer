@@ -1,0 +1,16 @@
+{
+  "id": 6,
+  "name": "The Spiral Pattern",
+  "flavorText": "The spiral of mana requires precise rotations to align the cosmic energies.",
+  "difficulty": "medium",
+  "mana": 6,
+  "start": ["◆", "◇", "◈", "◊", "●", "○"],
+  "target": ["◈", "◊", "●", "○", "◆", "◇"],
+  "solutions": [
+    ["rotateLeft", "rotateLeft"],
+    ["rotateRight", "rotateRight", "rotateRight", "rotateRight"]
+  ],
+  "par": 2,
+  "hint": "Multiple rotations create the spiral",
+  "unlockedOperations": ["reverse", "transpose", "rotateRight", "rotateLeft", "reverseRows"]
+}

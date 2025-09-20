@@ -1,0 +1,23 @@
+{
+  "id": 5,
+  "name": "The Transpose Paradox",
+  "flavorText": "Sometimes the path to order requires multiple transformations through dimensional space.",
+  "difficulty": "medium",
+  "mana": 5,
+  "start": [
+    ["◆", "◇", "◈"],
+    ["★", "☆", "✦"]
+  ],
+  "target": [
+    ["◈", "✦"],
+    ["◇", "☆"],
+    ["◆", "★"]
+  ],
+  "solutions": [
+    ["reverse", "transpose"],
+    ["transpose", "reverseRows"]
+  ],
+  "par": 2,
+  "hint": "Combine dimensional and mirror magic",
+  "unlockedOperations": ["reverse", "transpose", "rotateRight", "rotateLeft", "reverseRows"]
+}
