@@ -642,14 +642,24 @@ class SpellbookScene extends Phaser.Scene {
         const panelY = height - 120;
         const panelWidth = width - 100;
         const panelLeft = (width - panelWidth) / 2;
+        const panelRight = panelLeft + panelWidth;
         
         // Clear previous example
         if (this.exampleContainer) {
             this.exampleContainer.destroy();
         }
         
-        // Position example in right half of panel
-        const exampleX = panelLeft + panelWidth/2 + 20;
+        // First calculate total width of the example string
+        const fullString = 'Example: ' + exampleString;
+        const tempText = this.add.text(0, 0, fullString, {
+            font: '14px monospace',
+            fill: '#ffcc00'
+        });
+        const totalWidth = tempText.width;
+        tempText.destroy();
+        
+        // Right-align the example (similar to stats)
+        const exampleX = panelRight - 20 - totalWidth;
         this.exampleContainer = this.add.container(exampleX, panelY + 5);
         
         // Parse the example string and create colored text for each glyph
