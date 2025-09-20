@@ -2,7 +2,7 @@
   "id": "rotateRight",
   "name": "Sunwise Rotation",
   "symbol": "⟳",
-  "aplSymbol": "⌽⊖",
+  "glyphSymbol": "↻",
   "cost": 2,
   "key": "d",
   "category": "basic",

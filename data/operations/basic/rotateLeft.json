@@ -2,7 +2,7 @@
   "id": "rotateLeft",
   "name": "Widdershins Rotation",
   "symbol": "⟲",
-  "aplSymbol": "⊖",
+  "glyphSymbol": "↺",
   "cost": 2,
   "key": "a",
   "category": "basic",

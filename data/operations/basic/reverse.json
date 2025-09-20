@@ -2,7 +2,7 @@
   "id": "reverse",
   "name": "Spell of Reflection",
   "symbol": "⇄",
-  "aplSymbol": "⌽",
+  "glyphSymbol": "⇌",
   "cost": 1,
   "key": "r",
   "category": "basic",
