@@ -434,7 +434,7 @@ class SpellbookScene extends Phaser.Scene {
 
     createSpellGrid() {
         const { width, height } = this.cameras.main;
-        const startY = 220;  // Moved down to give more space
+        const startY = 250;  // Moved down more to avoid overlap with category tabs
         
         // Clear existing spell container
         if (this.spellContainer) {
@@ -446,8 +446,8 @@ class SpellbookScene extends Phaser.Scene {
         const category = this.categories[this.currentCategory];
         const categorySpells = this.allSpells.filter(spell => spell.category === category.id);
         
-        // Category title
-        const categoryTitle = this.add.text(width/2, startY - 15, 
+        // Category title - positioned well below tabs
+        const categoryTitle = this.add.text(width/2, startY - 20, 
             `${category.icon} ${category.name.toUpperCase()} ${category.icon}`, {
             font: 'bold 20px monospace',
             fill: category.color
@@ -467,7 +467,7 @@ class SpellbookScene extends Phaser.Scene {
             const col = index % cardsPerRow;
             
             const x = gridStartX + col * (cardWidth + spacing) + cardWidth/2;
-            const y = startY + 50 + row * (cardHeight + spacing);  // More space below title
+            const y = startY + 40 + row * (cardHeight + spacing);  // Adjusted spacing
             
             this.createSpellCard(x, y, spell, cardWidth, cardHeight);
         });
@@ -574,30 +574,31 @@ class SpellbookScene extends Phaser.Scene {
         this.detailPanel.setStrokeStyle(2, 0x8a2be2);
         this.detailPanel.setAlpha(0.9);
         
-        // Title
-        this.detailTitle = this.add.text(width/2 - 350, panelY - 30, 'Hover over a spell to see details', {
+        // Title - centered
+        this.detailTitle = this.add.text(width/2, panelY - 25, 'Hover over a spell to see details', {
             font: 'bold 16px monospace',
             fill: '#ffffff'
         });
-        this.detailTitle.setOrigin(0, 0.5);
+        this.detailTitle.setOrigin(0.5);
         
-        // Description
-        this.detailDesc = this.add.text(width/2 - 350, panelY, '', {
+        // Description - centered
+        this.detailDesc = this.add.text(width/2, panelY, '', {
             font: '13px monospace',
             fill: '#ccccff',
-            wordWrap: { width: 400 }
+            wordWrap: { width: 600 },
+            align: 'center'
         });
-        this.detailDesc.setOrigin(0, 0.5);
+        this.detailDesc.setOrigin(0.5);
         
         // Example will be created dynamically with colored glyphs
         this.exampleContainer = null;
         
-        // Stats
-        this.detailStats = this.add.text(width/2 + 50, panelY + 20, '', {
+        // Stats - centered
+        this.detailStats = this.add.text(width/2, panelY + 25, '', {
             font: '12px monospace',
             fill: '#44ccff'
         });
-        this.detailStats.setOrigin(0, 0.5);
+        this.detailStats.setOrigin(0.5);
     }
 
     updateDetailPanel(spell) {
@@ -630,7 +631,18 @@ class SpellbookScene extends Phaser.Scene {
         if (this.exampleContainer) {
             this.exampleContainer.destroy();
         }
-        this.exampleContainer = this.add.container(width/2 + 50, panelY - 10);
+        
+        // First, calculate total width needed
+        const fullString = 'Example: ' + exampleString;
+        const tempText = this.add.text(0, 0, fullString, {
+            font: '14px monospace',
+            fill: '#ffcc00'
+        });
+        const totalWidth = tempText.width;
+        tempText.destroy();
+        
+        // Create container centered
+        this.exampleContainer = this.add.container(width/2 - totalWidth/2, panelY);
         
         // Parse the example string and create colored text for each glyph
         const label = this.add.text(0, 0, 'Example: ', {
