@@ -1,0 +1,21 @@
+{
+  "id": 4,
+  "name": "The Row Reversal Ritual",
+  "flavorText": "Each line of power must be individually reflected to achieve harmonic balance.",
+  "difficulty": "easy",
+  "mana": 4,
+  "start": [
+    ["★", "☆", "✦"],
+    ["▲", "▼", "►"]
+  ],
+  "target": [
+    ["✦", "☆", "★"],
+    ["►", "▼", "▲"]
+  ],
+  "solutions": [
+    ["reverseRows"]
+  ],
+  "par": 1,
+  "hint": "Each row needs its own reversal",
+  "unlockedOperations": ["reverse", "transpose", "rotateRight", "rotateLeft", "reverseRows"]
+}

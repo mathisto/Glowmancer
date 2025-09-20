@@ -1,0 +1,21 @@
+{
+  "id": 3,
+  "name": "The Dimensional Flip",
+  "flavorText": "Ancient wizards discovered that matrices hold power when their dimensions are exchanged.",
+  "difficulty": "easy",
+  "mana": 3,
+  "start": [
+    ["◆", "◇"],
+    ["◈", "◊"]
+  ],
+  "target": [
+    ["◆", "◈"],
+    ["◇", "◊"]
+  ],
+  "solutions": [
+    ["transpose"]
+  ],
+  "par": 1,
+  "hint": "Exchange rows with columns",
+  "unlockedOperations": ["reverse", "transpose", "rotateRight", "rotateLeft"]
+}
