@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datamancy - The Art of Data Magic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a0b2e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Courier New', monospace;
+            color: #e0e0ff;
+        }
+
+        #game-container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(138, 43, 226, 0.4);
+        }
+
+        #game-canvas {
+            border: 2px solid rgba(138, 43, 226, 0.6);
+            border-radius: 10px;
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 24px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .magical-glow {
+            animation: magicalGlow 3s infinite;
+        }
+
+        @keyframes magicalGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.8));
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(138, 43, 226, 1));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="game-canvas" class="loading">✨ Summoning the Datamancy Engine...</div>
+    </div>
+
+    <script src="node_modules/phaser/dist/phaser.min.js"></script>
+    <script src="node_modules/ramda/dist/ramda.min.js"></script>
+    <script src="js/core/ArrayOperations.js"></script>
+    <script src="js/core/OperationLoader.js"></script>
+    <script src="js/core/GameEngine.js"></script>
+    <script src="js/core/LevelManager.js"></script>
+    <script src="js/scenes/Preloader.js"></script>
+    <script src="js/scenes/MainMenu.js"></script>
+    <script src="js/scenes/GameScene.js"></script>
+    <script src="js/objects/GlyphSprite.js"></script>
+    <script src="js/effects/SpellEffects.js"></script>
+    <script src="js/ui/Spellbook.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
