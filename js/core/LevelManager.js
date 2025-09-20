@@ -136,7 +136,7 @@ class LevelManager {
                 target: [["◆", "◇", "◈"], ["◊", "★", "☆"]],
                 solutions: [["reshape2x3"]],
                 par: 1,
-                hint: "Dual Trinity Form reshapes flat arrays into grids",
+                hint: "Dual Trinity Form reshapes patterns into grids",
                 unlockedOperations: ["reverse", "transpose", "rotateLeft", "rotateRight", "reshape2x3", "reshape3x2", "flatten"]
             }
         ];
