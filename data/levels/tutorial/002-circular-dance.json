@@ -1,0 +1,15 @@
+{
+  "id": 2,
+  "name": "The Circular Dance",
+  "flavorText": "The spheres must dance in a circle, shifting their positions in the eternal rotation.",
+  "difficulty": "tutorial",
+  "mana": 3,
+  "start": ["★", "☆", "✦", "✧"],
+  "target": ["✧", "★", "☆", "✦"],
+  "solutions": [
+    ["rotateRight"]
+  ],
+  "par": 1,
+  "hint": "Rotate the dance rightward",
+  "unlockedOperations": ["reverse", "rotateRight", "rotateLeft"]
+}

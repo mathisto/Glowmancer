@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "name": "The First Incantation",
+  "flavorText": "Every apprentice begins with the Mirror Spell, reflecting the essence of mana spheres.",
+  "difficulty": "tutorial",
+  "mana": 2,
+  "start": ["◆", "◇", "◈", "◊"],
+  "target": ["◊", "◈", "◇", "◆"],
+  "solutions": [
+    ["reverse"]
+  ],
+  "par": 1,
+  "hint": "The Mirror Spell reverses all",
+  "unlockedOperations": ["reverse"]
+}
