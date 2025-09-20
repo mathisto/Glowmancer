@@ -8,7 +8,7 @@ class Spellbook {
                 operation: 'reverse', 
                 cost: 1, 
                 symbol: '⇄',
-                description: 'Reverses the order of all elements',
+                description: 'Reverses the order of all orbs',
                 example: '[1,2,3] → [3,2,1]'
             },
             { 
@@ -17,7 +17,7 @@ class Spellbook {
                 operation: 'transpose', 
                 cost: 1, 
                 symbol: '⤨',
-                description: 'Flips a matrix along its diagonal',
+                description: 'Flips the pattern along its diagonal',
                 example: '[[1,2],[3,4]] → [[1,3],[2,4]]'
             },
             { 
@@ -26,7 +26,7 @@ class Spellbook {
                 operation: 'rotateLeft', 
                 cost: 2, 
                 symbol: '⟲',
-                description: 'Rotates elements counter-clockwise',
+                description: 'Rotates orbs counter-clockwise',
                 example: '[1,2,3,4] → [2,3,4,1]'
             },
             { 
@@ -35,7 +35,7 @@ class Spellbook {
                 operation: 'rotateRight', 
                 cost: 2, 
                 symbol: '⟳',
-                description: 'Rotates elements clockwise',
+                description: 'Rotates orbs clockwise',
                 example: '[1,2,3,4] → [4,1,2,3]'
             },
             { 
@@ -53,7 +53,7 @@ class Spellbook {
                 operation: 'flatten', 
                 cost: 3, 
                 symbol: '⊡',
-                description: 'Converts a 2D array to 1D',
+                description: 'Converts a 2D pattern to a single row',
                 example: '[[1,2],[3,4]] → [1,2,3,4]'
             },
             { 
@@ -62,7 +62,7 @@ class Spellbook {
                 operation: 'reshape2x3', 
                 cost: 3, 
                 symbol: '⊞',
-                description: 'Reshapes array into 2 rows, 3 columns',
+                description: 'Reshapes pattern into 2 rows, 3 columns',
                 example: '[1,2,3,4,5,6] → [[1,2,3],[4,5,6]]'
             },
             { 
@@ -71,7 +71,7 @@ class Spellbook {
                 operation: 'reshape3x2', 
                 cost: 3, 
                 symbol: '⊟',
-                description: 'Reshapes array into 3 rows, 2 columns',
+                description: 'Reshapes pattern into 3 rows, 2 columns',
                 example: '[1,2,3,4,5,6] → [[1,2],[3,4],[5,6]]'
             }
         ];
