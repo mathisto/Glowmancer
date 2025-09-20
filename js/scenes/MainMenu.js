@@ -27,8 +27,7 @@ class MainMenu extends Phaser.Scene {
         const menuOptions = [
             { text: 'Begin Journey', scene: 'GameScene' },
             { text: 'Select Level', action: 'levelSelect' },
-            { text: 'Spellbook', action: 'spellbook' },
-            { text: 'Settings', action: 'settings' }
+            { text: 'Spellbook', action: 'spellbook' }
         ];
 
         this.selectedIndex = 0;
@@ -137,9 +136,6 @@ class MainMenu extends Phaser.Scene {
                     this.time.delayedCall(500, () => {
                         this.scene.start('SpellbookScene');
                     });
-                    break;
-                case 'settings':
-                    console.log('Settings not yet implemented');
                     break;
             }
         }
