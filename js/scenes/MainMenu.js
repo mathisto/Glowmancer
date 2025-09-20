@@ -127,7 +127,10 @@ class MainMenu extends Phaser.Scene {
             // Handle other actions
             switch(action) {
                 case 'levelSelect':
-                    console.log('Level select not yet implemented');
+                    this.cameras.main.fade(500, 0, 0, 0);
+                    this.time.delayedCall(500, () => {
+                        this.scene.start('LevelSelect');
+                    });
                     break;
                 case 'spellbook':
                     console.log('Spellbook viewer not yet implemented');
