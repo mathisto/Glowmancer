@@ -48,26 +48,46 @@ Navigate to `http://localhost:8080` and begin your magical journey!
 ### Basic Incantations
 | Spell | Glyph | Hotkey | Mana | Effect |
 |-------|-------|--------|------|--------|
-| Spell of Reflection | ⌽ | R | 1 MP | Reverses the pattern |
+| Spell of Reflection | ⇌ | R | 1 MP | Reverses the pattern |
 | Matrix Transmutation | ⍉ | T | 1 MP | Transposes the matrix |
-| Widdershins Rotation | ⊖ | A | 2 MP | Rotates counterclockwise |
-| Sunwise Rotation | ⌽⊖ | D | 2 MP | Rotates clockwise |
+| Widdershins Rotation | ↺ | A | 2 MP | Rotates counterclockwise |
+| Sunwise Rotation | ↻ | D | 2 MP | Rotates clockwise |
+| Row Reflection | ⥀ | E | 2 MP | Reverses each row |
+| Planar Collapse | ♭ | F | 3 MP | Flattens to one dimension |
+| Dual Trinity Form | ⊞ | 2 | 3 MP | Reshapes to 2×3 grid |
+| Triple Duality Form | ⊟ | 3 | 3 MP | Reshapes to 3×2 grid |
 
-### Advanced Magic
+### Selection Magic
 | Spell | Glyph | Hotkey | Mana | Effect |
 |-------|-------|--------|------|--------|
-| Row Reflection | ⌽¨ | E | 2 MP | Reverses each row |
-| Planar Collapse | , | F | 3 MP | Flattens to one dimension |
-| Dual Trinity Form | 2 3⍴ | 2 | 3 MP | Reshapes to 2×3 grid |
-| Triple Duality Form | 3 2⍴ | 3 | 3 MP | Reshapes to 3×2 grid |
+| Prima Extraction | ⊢ | H | 2 MP | Keep first element |
+| Ultima Selection | ⊣ | L | 2 MP | Keep last element |
+| Essence Shedding | ↓ | X | 2 MP | Remove first element |
+| Element Dismissal | ↘ | K | 2 MP | Drop first n elements |
+| Element Harvest | ↙ | Y | 2 MP | Take first n elements |
+| Index Invocation | ⊏ | N | 3 MP | Select by indices |
+| Truth Seeking | ⊚ | W | 3 MP | Find non-zero indices |
 
-### Master Techniques
-Unlock powerful transformations as you progress:
-- **Prima Extraction** (↑) - Extract first elements
-- **Essence Shedding** (↓) - Remove first, keep rest  
-- **Twin Reflection** (⊢⌽⊣) - Mirror pattern symmetrically
-- **Thread Binding** (,/) - Weave elements together
-- **Vortex Unwinding** (⌽∘⍉) - Spiral transformation
+### Weaving Techniques
+| Spell | Glyph | Hotkey | Mana | Effect |
+|-------|-------|--------|------|--------|
+| Thread Binding | ⋈ | Z | 3 MP | Interleave elements |
+| Twin Reflection | ⧇ | M | 4 MP | Mirror pattern |
+| Dual Fusion | ⊟ | O | 2 MP | Combine as rows |
+| Linear Fusion | ⊂ | J | 2 MP | Append end-to-end |
+| Selective Retention | ▽ | 9 | 3 MP | Keep by mask |
+| Unique Distillation | ◴ | B | 3 MP | Remove all duplicates |
+
+### Advanced Transformations
+| Spell | Glyph | Hotkey | Mana | Effect |
+|-------|-------|--------|------|--------|
+| Vortex Unwinding | @ | S | 4 MP | Spiral transformation |
+| Essence Classification | ⊛ | 4 | 3 MP | Assign unique indices |
+| Convergence Ritual | ∧ | 5 | 4 MP | Fold to single value |
+| Segmentation Spell | ⊜ | 7 | 3 MP | Split into groups |
+| Window Weaving | ⧈ | 8 | 4 MP | Apply to sliding windows |
+| Containment Seal | □ | 0 | 1 MP | Box the pattern |
+| Seal Breaking | ◇ | - | 1 MP | Unbox the pattern |
 
 ## 🎯 How to Play
 
