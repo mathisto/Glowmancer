@@ -19,6 +19,32 @@ class SpellbookScene extends Phaser.Scene {
         
         // All available spells (will be loaded from OperationLoader)
         this.allSpells = [];
+        
+        // Glyph colors from GlyphSprite
+        this.glyphColors = {
+            '◆': '#ff4444',
+            '◇': '#4444ff', 
+            '◈': '#ffff44',
+            '◊': '#44ff44',
+            '★': '#ff44ff',
+            '☆': '#44ffff',
+            '✦': '#ffffff',
+            '✧': '#888888',
+            '●': '#ff8844',
+            '○': '#88ff44',
+            '▲': '#ff88ff',
+            '▼': '#88ffff',
+            '►': '#ffff88',
+            '◄': '#8888ff',
+            '■': '#ff4488',
+            '□': '#44ff88',
+            '▪': '#8844ff',
+            '▫': '#44ffff',
+            '✚': '#ffaa44',
+            '✖': '#44aaff',
+            '✸': '#aaff44',
+            '✹': '#ff44aa'
+        };
     }
 
     create() {
@@ -302,7 +328,7 @@ class SpellbookScene extends Phaser.Scene {
 
     createCategoryTabs() {
         const { width } = this.cameras.main;
-        const startY = 100;
+        const startY = 120;  // Moved down for more space
         const tabWidth = 180;  // Made wider to fit text
         const tabHeight = 45;   // Made taller
         const spacing = 10;
@@ -313,8 +339,8 @@ class SpellbookScene extends Phaser.Scene {
         }
         this.categoryContainer = this.add.container(0, 0);
         
-        // Category label
-        const categoryLabel = this.add.text(width/2, startY - 30, 'SPELL CATEGORIES', {
+        // Category label - with more padding
+        const categoryLabel = this.add.text(width/2, startY - 45, 'SPELL CATEGORIES', {
             font: 'bold 18px monospace',
             fill: '#ccccff'
         });
@@ -563,12 +589,8 @@ class SpellbookScene extends Phaser.Scene {
         });
         this.detailDesc.setOrigin(0, 0.5);
         
-        // Example
-        this.detailExample = this.add.text(width/2 + 50, panelY - 10, '', {
-            font: '14px monospace',
-            fill: '#ffcc00'
-        });
-        this.detailExample.setOrigin(0, 0.5);
+        // Example will be created dynamically with colored glyphs
+        this.exampleContainer = null;
         
         // Stats
         this.detailStats = this.add.text(width/2 + 50, panelY + 20, '', {
@@ -582,15 +604,61 @@ class SpellbookScene extends Phaser.Scene {
         if (!spell) {
             this.detailTitle.setText('Hover over a spell to see details');
             this.detailDesc.setText('');
-            this.detailExample.setText('');
+            // Clear example glyphs
+            if (this.exampleContainer) {
+                this.exampleContainer.destroy();
+                this.exampleContainer = null;
+            }
             this.detailStats.setText('');
             return;
         }
         
         this.detailTitle.setText(`${spell.symbol} ${spell.name}`);
         this.detailDesc.setText(spell.description);
-        this.detailExample.setText(`Example: ${spell.example}`);
+        
+        // Create colored example glyphs
+        this.createColoredExample(spell.example);
+        
         this.detailStats.setText(`Key: [${spell.key}]  |  Cost: ${spell.cost} MP  |  Unlocked at Level ${spell.unlockLevel}`);
+    }
+    
+    createColoredExample(exampleString) {
+        const { width, height } = this.cameras.main;
+        const panelY = height - 120;
+        
+        // Clear previous example
+        if (this.exampleContainer) {
+            this.exampleContainer.destroy();
+        }
+        this.exampleContainer = this.add.container(width/2 + 50, panelY - 10);
+        
+        // Parse the example string and create colored text for each glyph
+        const label = this.add.text(0, 0, 'Example: ', {
+            font: '14px monospace',
+            fill: '#ffcc00'
+        });
+        this.exampleContainer.add(label);
+        
+        let xOffset = label.width + 5;
+        
+        // Process each character in the example
+        for (let i = 0; i < exampleString.length; i++) {
+            const char = exampleString[i];
+            let color = '#ffcc00'; // Default color for arrows and brackets
+            
+            // Check if it's a glyph that needs coloring
+            if (this.glyphColors[char]) {
+                color = this.glyphColors[char];
+            }
+            
+            const charText = this.add.text(xOffset, 0, char, {
+                font: '14px monospace',
+                fill: color
+            });
+            
+            this.exampleContainer.add(charText);
+            xOffset += charText.width;
+        }
     }
 
     createNavigation() {
