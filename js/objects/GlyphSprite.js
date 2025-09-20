@@ -10,6 +10,7 @@ class GlyphSprite extends Phaser.GameObjects.Container {
         
         this.glyph = glyph;
         this.glyphColors = {
+            // Original orb glyphs
             '◆': '#ff4444',
             '◇': '#4444ff', 
             '◈': '#ffff44',
@@ -32,7 +33,44 @@ class GlyphSprite extends Phaser.GameObjects.Container {
             '✖': '#44aaff',
             '✸': '#aaff44',
             '✹': '#ff44aa',
-            '?': '#666666'  // Fallback color
+            
+            // New Uiua-inspired operation glyphs
+            '⇌': '#ff6666',  // reverse
+            '⍉': '#66ff66',  // transpose
+            '↺': '#6666ff',  // rotateLeft
+            '↻': '#ffff66',  // rotateRight
+            '⥀': '#ff66ff',  // reverseRows
+            '♭': '#66ffff',  // flatten
+            '⊞': '#ffaa66',  // reshape2x3
+            '⊟': '#66aaff',  // reshape3x2/couple
+            '⊢': '#aaff66',  // first
+            '⊣': '#ff66aa',  // last
+            '⊐': '#aa66ff',  // init
+            '↓': '#66ffaa',  // tail
+            '╫': '#ffaaff',  // halve
+            '↘': '#aaffff',  // drop
+            '↙': '#ffffaa',  // take
+            '⊏': '#ffaaaa',  // select
+            '⊚': '#aaaaff',  // where
+            '⋈': '#aaffaa',  // zip
+            '⋉': '#ffccaa',  // unzip
+            '⧇': '#aaccff',  // mirror
+            '⥁': '#ccaaff',  // palindrome/spiral alt
+            '≡': '#ccffaa',  // dedupe
+            '◴': '#ffaacc',  // deduplicate
+            '⊂': '#aaffcc',  // join
+            '▽': '#ccaaaa',  // keep
+            '⊠': '#ffccff',  // chunk
+            '@': '#ccffff',  // spiral
+            '⤸': '#ffffcc',  // zigzag
+            '⟋': '#ffcccc',  // diagonal
+            '⊛': '#ccccff',  // classify
+            '∧': '#ccffcc',  // fold
+            '⊜': '#ffddcc',  // partition
+            '⧈': '#ccddff',  // stencil
+            '◇': '#ddccff',  // unbox
+            
+            '?': '#666666'   // Fallback color
         };
         
         // Get color with fallback
