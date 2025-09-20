@@ -1,7 +1,7 @@
 {
-  "name": "datamancy",
+  "name": "glowmancer",
   "version": "0.1.0",
-  "description": "A puzzle game of array programming magic - harness the power of data transformation",
+  "description": "A mystical puzzle game of glow magic - transform patterns of colored orbs",
   "main": "index.js",
   "scripts": {
     "start": "http-server . -p 8080 -c-1",
@@ -10,7 +10,7 @@
   "keywords": [
     "game",
     "puzzle",
-    "array-programming",
+    "glow",
     "magic",
     "phaser"
   ],
